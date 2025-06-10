@@ -4,6 +4,9 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Handle missing images
+    handleMissingImages();
+    
     // Initialize all components
     initMobileMenu();
     initCarousel();
@@ -13,7 +16,82 @@ document.addEventListener('DOMContentLoaded', function() {
     initServiceBooking();
     initQuantitySelectors();
     initFormValidation();
+    initScrollEffects();
 });
+
+/**
+ * Handle missing images gracefully
+ */
+function handleMissingImages() {
+    // Create placeholder icon for missing images
+    function createImagePlaceholder(element, type) {
+        const placeholder = document.createElement('div');
+        placeholder.className = 'image-placeholder ' + type + '-placeholder';
+        
+        // Use appropriate icon based on context
+        let icon = 'image';
+        if (type === 'product') icon = 'bicycle';
+        if (type === 'category') icon = 'list';
+        if (type === 'accessory') icon = 'cog';
+        
+        placeholder.innerHTML = `<i class="fas fa-${icon}"></i>`;
+        
+        // Add placeholder to parent element
+        element.appendChild(placeholder);
+        return placeholder;
+    }
+    
+    // Add error class to all images that fail to load
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.addEventListener('error', function() {
+            this.classList.add('error');
+            
+            // Create appropriate placeholder based on context
+            if (this.parentElement) {
+                if (this.parentElement.classList.contains('product-image')) {
+                    createImagePlaceholder(this.parentElement, 'product');
+                    this.style.display = 'none';
+                } 
+                else if (this.parentElement.classList.contains('category-card')) {
+                    // Category cards use CSS ::before for gradient background
+                    this.style.display = 'none';
+                }
+                else if (this.parentElement.classList.contains('testimonial-author')) {
+                    createImagePlaceholder(this.parentElement, 'avatar');
+                    this.style.display = 'none';
+                }
+            }
+        });
+    });
+    
+    // Handle background images in carousel
+    const carouselImages = document.querySelectorAll('.carousel-image');
+    carouselImages.forEach(div => {
+        const url = div.style.backgroundImage.replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
+        if (url) {
+            const img = new Image();
+            img.onload = function() {
+                // Image loaded successfully, do nothing
+            };
+            img.onerror = function() {
+                // Image failed to load, apply a gradient background instead
+                div.style.backgroundImage = 'linear-gradient(45deg, var(--primary-color), var(--dark-color))';
+            };
+            img.src = url;
+        }
+    });
+    
+    // Make sure category cards are properly styled for missing images
+    const categoryCards = document.querySelectorAll('.category-card');
+    categoryCards.forEach(card => {
+        const img = card.querySelector('img');
+        if (img && (!img.complete || img.naturalHeight === 0)) {
+            img.classList.add('error');
+            img.style.display = 'none';
+        }
+    });
+}
 
 /**
  * Mobile Menu Toggle
@@ -196,7 +274,7 @@ function initProductFilters() {
     if (priceRange && priceValue) {
         priceRange.addEventListener('input', function() {
             const value = this.value;
-            priceValue.textContent = value >= 3000 ? '$3000+' : '$' + value;
+            priceValue.textContent = value >= 250000 ? '₹250000+' : '₹' + value;
         });
     }
     
@@ -223,8 +301,8 @@ function initProductFilters() {
             
             // Reset price slider
             if (priceRange) {
-                priceRange.value = 3000;
-                priceValue.textContent = '$3000+';
+                priceRange.value = 250000;
+                priceValue.textContent = '₹250000+';
             }
             
             // Reset checkboxes
@@ -574,3 +652,78 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+/**
+ * Scroll Effects
+ */
+function initScrollEffects() {
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    const sections = document.querySelectorAll('section');
+    
+    // Scroll to top button functionality
+    if (scrollToTopBtn) {
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        // Scroll to top when button is clicked
+        scrollToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+    
+    // Scroll-triggered animations for elements
+    const scrollAnimElements = document.querySelectorAll('.scroll-anim');
+    
+    // Add scroll-anim class to elements we want to animate on scroll
+    document.querySelectorAll('.product-card, .service-card, .category-card, .section-title').forEach(el => {
+        if (!el.classList.contains('scroll-anim')) {
+            el.classList.add('scroll-anim');
+        }
+    });
+    
+    // Function to check if element is in viewport
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85 &&
+            rect.bottom >= 0
+        );
+    }
+    
+    // Function to handle scroll animations
+    function handleScrollAnimations() {
+        scrollAnimElements.forEach(element => {
+            if (isInViewport(element) && !element.classList.contains('animated')) {
+                element.classList.add('animated');
+            }
+        });
+    }
+    
+    // Initial check for elements in viewport
+    handleScrollAnimations();
+    
+    // Check on scroll
+    window.addEventListener('scroll', handleScrollAnimations);
+    
+    // Add parallax effect to sections with background
+    window.addEventListener('scroll', function() {
+        const scrollPosition = window.pageYOffset;
+        
+        // Parallax effect for background elements
+        sections.forEach(section => {
+            if (section.classList.contains('featured-products') || section.classList.contains('services')) {
+                const speed = 0.2;
+                section.style.backgroundPosition = `center ${scrollPosition * speed}px`;
+            }
+        });
+    });
+}
