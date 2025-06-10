@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Appugol Cycle World</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Appugol Cycle World</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icons">
+                <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                <a href="#" class="user-icon"><i class="fas fa-user"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Products</h1>
+            <p>Discover premium bikes and accessories for every cycling enthusiast</p>
+        </div>
+    </section>
+
+    <section class="product-catalog">
+        <div class="container">
+            <div class="catalog-layout">
+                <aside class="product-filters">
+                    <div class="filter-section">
+                        <h3>Categories</h3>
+                        <ul class="filter-list">
+                            <li><a href="#" class="active" data-category="all">All Products</a></li>
+                            <li><a href="#" data-category="mountain">Mountain Bikes</a></li>
+                            <li><a href="#" data-category="road">Road Bikes</a></li>
+                            <li><a href="#" data-category="urban">Urban Bikes</a></li>
+                            <li><a href="#" data-category="accessories">Accessories</a></li>
+                            <li><a href="#" data-category="parts">Parts & Components</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Price Range</h3>
+                        <div class="price-slider">
+                            <input type="range" min="0" max="3000" value="3000" class="slider" id="priceRange">
+                            <div class="price-inputs">
+                                <span>$0</span>
+                                <span id="priceValue">$3000+</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Brands</h3>
+                        <ul class="filter-list checkbox-list">
+                            <li><label><input type="checkbox" checked> Cycle Pro</label></li>
+                            <li><label><input type="checkbox" checked> VeloTech</label></li>
+                            <li><label><input type="checkbox" checked> MountainMaster</label></li>
+                            <li><label><input type="checkbox" checked> UrbanRider</label></li>
+                            <li><label><input type="checkbox" checked> SpeedElite</label></li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Frame Size</h3>
+                        <ul class="filter-list checkbox-list">
+                            <li><label><input type="checkbox" checked> Small (S)</label></li>
+                            <li><label><input type="checkbox" checked> Medium (M)</label></li>
+                            <li><label><input type="checkbox" checked> Large (L)</label></li>
+                            <li><label><input type="checkbox" checked> X-Large (XL)</label></li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Color</h3>
+                        <div class="color-options">
+                            <label class="color-option"><input type="checkbox" checked><span class="color-circle black"></span></label>
+                            <label class="color-option"><input type="checkbox" checked><span class="color-circle blue"></span></label>
+                            <label class="color-option"><input type="checkbox" checked><span class="color-circle red"></span></label>
+                            <label class="color-option"><input type="checkbox" checked><span class="color-circle green"></span></label>
+                            <label class="color-option"><input type="checkbox" checked><span class="color-circle silver"></span></label>
+                        </div>
+                    </div>
+
+                    <button class="btn primary-btn apply-filters">Apply Filters</button>
+                    <button class="btn outline-btn reset-filters">Reset Filters</button>
+                </aside>
+
+                <div class="product-display">
+                    <div class="product-controls">
+                        <div class="product-count">
+                            <p>Showing <span id="productCount">12</span> products</p>
+                        </div>
+                        <div class="product-sort">
+                            <label for="sortBy">Sort by:</label>
+                            <select id="sortBy">
+                                <option value="featured">Featured</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="newest">Newest</option>
+                                <option value="rating">Customer Rating</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="product-grid">
+                        <!-- Mountain Bikes -->
+                        <div class="product-card" data-category="mountain">
+                            <div class="product-image">
+                                <img src="images/bike1.jpg" alt="Mountain Explorer X3">
+                                <div class="product-tags">
+                                    <span class="tag new-tag">New</span>
+                                </div>
+                                <div class="quick-view">
+                                    <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Mountain Explorer X3</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>(24)</span>
+                                </div>
+                                <p class="product-desc">All-terrain mountain bike with premium suspension</p>
+                                <div class="product-footer">
+                                    <span class="price">$1,299</span>
+                                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="mountain">
+                            <div class="product-image">
+                                <img src="images/bike5.jpg" alt="Trail Blazer Pro">
+                                <div class="product-tags">
+                                    <span class="tag bestseller-tag">Bestseller</span>
+                                </div>
+                                <div class="quick-view">
+                                    <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Trail Blazer Pro</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>(42)</span>
+                                </div>
+                                <p class="product-desc">High-performance trail bike with advanced suspension</p>
+                                <div class="product-footer">
+                                    <span class="price">$1,699</span>
+                                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="mountain">
+                            <div class="product-image">
+                                <img src="images/bike9.jpg" alt="Altitude Master">
+                                <div class="quick-view">
+                                    <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Altitude Master</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>(18)</span>
+                                </div>
+                                <p class="product-desc">Specialized for high-altitude mountain trails</p>
+                                <div class="product-footer">
+                                    <span class="price">$1,499</span>
+                                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Road Bikes -->
+                        <div class="product-card" data-category="road">
+                            <div class="product-image">
+                                <img src="images/bike3.jpg" alt="Road Master Elite">
+                                <div class="quick-view">
+                                    <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Road Master Elite</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>(31)</span>
+                                </div>
+                                <p class="product-desc">Professional road bike with carbon frame</p>
+                                <div class="product-footer">
+                                    <span class="price">$2,199</span>
+                                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="road">
+                            <div class="product-image">
+                                <img src="images/bike6.jpg" alt="Speed Demon">
+                                <div class="product-tags">
+                                    <span class="tag sale-tag">Sale</span>
+                                </div>
+                                <div class="quick-view">
+                                    <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Speed Demon</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>(15)</span>
+                                </div>
+                                <p class="product-desc">Aerodynamic racing bike for competitive cyclists</p>
+                                <div class="product-footer">
+                                    <span class="price"><del>$2,499</del> $1,999</span>
+                                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Urban Bikes -->
+                        <div class="product-card" data-category="urban">
+                            <div class="product-image">
+                                <img src="images/bike2.jpg" alt="Urban Commuter Pro">
+                                <div class="product-tags">
+                                    <span class="tag bestseller-tag">Bestseller</span>
+                                </div>
+                                <div class="quick-view">
+                                    <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Urban Commuter Pro</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>(38)</span>
+                                </div>
+                                <p class="product-desc">Lightweight city bike with integrated lights</p>
+                                <div class="product-footer">
+                                    <span class="price">$899</span>
+                                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="urban">
+                            <div class="product-image">
+                                <img src="images/bike7.jpg" alt="City Cruiser">
+                                <div class="quick-view">
+                                    <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>City Cruiser</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>(22)</span>
+                                </div>
+                                <p class="product-desc">Comfortable cruiser bike for casual urban riding</p>
+                                <div class="product-footer">
+                                    <span class="price">$749</span>
+                                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="urban">
+                            <div class="product-image">
+                                <img src="images/bike8.jpg" alt="Folding Commuter">
+                                <div class="product-tags">
+                                    <span class="tag new-tag">New</span>
+                                </div>
+                                <div class="quick-view">
+                                    <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Folding Commuter</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>(12)</span>
+                                </div>
+                                <p class="product-desc">Compact folding bike for urban commuters</p>
+                                <div class="product-footer">
+                                    <span class="price">$599</span>
+                                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Accessories -->
+                        <div class="product-card" data-category="accessories">
+                            <div class="product-image">
+                                <img src="images/accessory1.jpg" alt="Premium Cycling Helmet">
+                                <div class="product-tags">
+                                    <span class="tag sale-tag">Sale</span>
+                                </div>
+                                <div class="quick-view">
+                                    <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Premium Cycling Helmet</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>(47)</span>
+                                </div>
+                                <p class="product-desc">Lightweight helmet with advanced safety features</p>
+                                <div class="product-footer">
+                                    <span class="price"><del>$120</del> $89</span>
+                                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="accessories">
+                            <div class="product-image">
+                                <img src="images/accessory2.jpg" alt="Cycling Water Bottle">
+                                <div class="quick-view">
+                                    <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Cycling Water Bottle</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>(29)</span>
+                                </div>
+                                <p class="product-desc">Insulated water bottle with easy-grip design</p>
+                                <div class="product-footer">
+                                    <span class="price">$24.99</span>
+                                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="accessories">
+                            <div class="product-image">
+                                <img src="images/accessory3.jpg" alt="Cycling Gloves">
+                                <div class="quick-view">
+                                    <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Cycling Gloves</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>(19)</span>
+                                </div>
+                                <p class="product-desc">Padded cycling gloves for comfort and grip</p>
+                                <div class="product-footer">
+                                    <span class="price">$34.99</span>
+                                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Parts -->
+                        <div class="product-card" data-category="parts">
+                            <div class="product-image">
+                                <img src="images/part1.jpg" alt="Performance Bike Pedals">
+                                <div class="quick-view">
+                                    <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Performance Bike Pedals</h3>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>(14)</span>
+                                </div>
+                                <p class="product-desc">Lightweight aluminum alloy pedals with secure grip</p>
+                                <div class="product-footer">
+                                    <span class="price">$79.99</span>
+                                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pagination">
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-banner">
+        <div class="container">
+            <div class="banner-content">
+                <h2>Need Help Choosing the Right Bike?</h2>
+                <p>Our cycling experts are here to assist you in finding the perfect match for your riding style and preferences.</p>
+                <a href="contact.html" class="btn primary-btn">Get Expert Advice</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Appugol Cycle World</h3>
+                    <p>Premium cycles and accessories for every rider.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="products.html?category=mountain">Mountain Bikes</a></li>
+                        <li><a href="products.html?category=road">Road Bikes</a></li>
+                        <li><a href="products.html?category=urban">Urban Bikes</a></li>
+                        <li><a href="products.html?category=accessories">Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="index.html#services">Bike Repair</a></li>
+                        <li><a href="index.html#services">Custom Fitting</a></li>
+                        <li><a href="index.html#services">Parts Upgrade</a></li>
+                        <li><a href="contact.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Cycle Street, Bike City</li>
+                        <li><i class="fas fa-phone"></i> +91 97406 40573</li>
+                        <li><i class="fas fa-envelope"></i> info@cycleworld.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Appugol Cycle World. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Quick View Modal -->
+    <div class="modal" id="quickViewModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="quick-view-container">
+                <div class="quick-view-image">
+                    <img id="modalProductImage" src="images/bike1.jpg" alt="Product">
+                </div>
+                <div class="quick-view-details">
+                    <h2 id="modalProductName">Mountain Explorer X3</h2>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(24 reviews)</span>
+                    </div>
+                    <p class="modal-price" id="modalProductPrice">$1,299</p>
+                    <p class="modal-description" id="modalProductDesc">All-terrain mountain bike with premium suspension system, lightweight aluminum frame, and advanced gear shifting technology for the ultimate trail riding experience.</p>
+                    
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label>Frame Size:</label>
+                            <div class="option-buttons">
+                                <button class="option-btn">S</button>
+                                <button class="option-btn active">M</button>
+                                <button class="option-btn">L</button>
+                                <button class="option-btn">XL</button>
+                            </div>
+                        </div>
+                        <div class="option-group">
+                            <label>Color:</label>
+                            <div class="color-options">
+                                <label class="color-option"><input type="radio" name="color"><span class="color-circle black active"></span></label>
+                                <label class="color-option"><input type="radio" name="color"><span class="color-circle blue"></span></label>
+                                <label class="color-option"><input type="radio" name="color"><span class="color-circle red"></span></label>
+                            </div>
+                        </div>
+                        <div class="option-group">
+                            <label>Quantity:</label>
+                            <div class="quantity-selector">
+                                <button class="quantity-btn minus">-</button>
+                                <input type="number" value="1" min="1" max="10" class="quantity-input">
+                                <button class="quantity-btn plus">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button class="btn primary-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        <button class="btn outline-btn wishlist-btn"><i class="far fa-heart"></i> Add to Wishlist</button>
+                    </div>
+                    
+                    <div class="product-meta">
+                        <p><span>SKU:</span> CW-MTB-X3-001</p>
+                        <p><span>Category:</span> Mountain Bikes</p>
+                        <p><span>Tags:</span> Trail, All-Terrain, Premium</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
